@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="AI-powered tools for YouTube creators — generate titles, scripts, and video ideas in seconds.">
+  <meta name="keywords" content="YouTube tools, AI content, YT automation, video titles, scripts">
+  <meta name="author" content="YTStack.tech">
+  <title>YTStack.tech - AI Tools for YouTubers</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #121212, #1c1c1c);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background-color: #ff3c78;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #ff1e62;
+    }
+
+    .hero {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .mockup {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <h1 class="display-4 fw-bold">YTStack.tech</h1>
+    <p class="lead">Your AI-powered productivity stack for YouTube</p>
+    <p>Create powerful titles, compelling scripts, and viral video ideas — in seconds.</p>
+    <a href="#waitlist" class="btn btn-primary btn-lg mt-3">Join the Waitlist</a>
+  </header>
+
+  <section class="container">
+    <div class="glass">
+      <h2 class="fw-bold mb-3">✨ Why YTStack?</h2>
+      <ul>
+        <li><strong>Instant Video Titles:</strong> Catchy, SEO-optimized, click-worthy.</li>
+        <li><strong>Script Generator:</strong> Outline and write full video scripts in your voice.</li>
+        <li><strong>AI Brainstorming:</strong> Endless video ideas tailored to your niche.</li>
+        <li><strong>Thumbnails (Coming Soon):</strong> Auto-generated eye-popping visuals.</li>
+      </ul>
+    </div>
+
+    <div class="glass text-center">
+      <h2 class="fw-bold mb-3">🎥 See YTStack in Action</h2>
+      <img src="https://dummyimage.com/800x450/000/fff&text=Tool+UI+Mockup" alt="Tool Mockup" class="mockup">
+    </div>
+
+    <div id="waitlist" class="glass">
+      <h2 class="fw-bold mb-3">🚀 Be the First to Get Access</h2>
+      <form id="waitlistForm" onsubmit="handleSubmit(event)" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="name" placeholder="e.g., Hamza" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="hasChannel" class="form-label">Do you currently run a YouTube channel?</label>
+          <select class="form-control" id="hasChannel" required>
+            <option value="">Select one</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Join Waitlist</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="text-center mt-4 mb-3">
+    <p>&copy; 2025 YTStack.tech — Built for creators, by creators.</p>
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const hasChannel = document.getElementById("hasChannel").value;
+
+      if (!name || !email || !hasChannel) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      // Simulate form submission
+      alert("Thanks for joining the waitlist, " + name + "!");
+      document.getElementById("waitlistForm").reset();
+    }
+  </script>
+</body>
+
+</html>
