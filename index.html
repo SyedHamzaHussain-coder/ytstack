@@ -78,24 +78,26 @@
 
     <div id="waitlist" class="glass">
       <h2 class="fw-bold mb-3">🚀 Be the First to Get Access</h2>
-      <form action="https://send.pageclip.co/qnpSBIu8JsfMMyh6X29XXo1uK11Blz9a" class="pageclip-form" method="post">
+      <form action="https://send.pageclip.co/qnpSBIu8JsfMMyh6X29XXo1uK11Blz9a/waitlist-emails" class="pageclip-form" method="post">
         <div class="mb-3">
           <label for="name" class="form-label">Your Name</label>
-          <input type="text" class="form-control" id="name" placeholder="e.g., Hamza" required>
+          <input type="text" class="form-control" id="name" name="name" placeholder="e.g., Hamza" required>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
         </div>
         <div class="mb-3">
           <label for="hasChannel" class="form-label">Do you currently run a YouTube channel?</label>
-          <select class="form-control" id="hasChannel" required>
+          <select class="form-control" id="hasChannel" name="hasChannel" required>
             <option value="">Select one</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
         </div>
-        <button type="submit" class="pageclip-form__submit">Join Waitlist</button>
+        <button type="submit" class="pageclip-form__submit">
+          <span>Join Waitlist</span>
+        </button>
       </form>
     </div>
   </section>
@@ -122,7 +124,7 @@
       document.getElementById("waitlistForm").reset();
     }
   </script>
-<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 </body>
 
 </html>
