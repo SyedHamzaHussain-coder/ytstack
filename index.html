@@ -1385,12 +1385,30 @@
         });
 
         // Form submission
-        waitlistForm.addEventListener("submit", function (e) {
+        waitlistForm.addEventListener("submit", async function (e) {
           e.preventDefault();
 
-          // Here you would normally send the form data to your backend
-          // For demo purposes, we'll just show the success modal
-          successModal.classList.remove("hidden");
+          const formDataObj = new FormData(waitlistForm);
+          const formData = {
+            first_name: formDataObj.get('firstName'),
+            last_name: formDataObj.get('lastName'),
+            email: formDataObj.get('email'),
+            channel_url: formDataObj.get('channelUrl'),
+            newsletter: formDataObj.has('newsletter') // true if checked, false if not
+          };
+
+          const { data, error } = await supabaseClient
+            .from("waitlist")
+            .insert([formData]);
+
+          if (error) {
+            alert("❌ Something went wrong. Try again.");
+            console.error(error);
+          } else {
+            alert("✅ Successfully added to waitlist!");
+            waitlistForm.reset();
+            checkboxIndicator.classList.add("hidden");
+          }
         });
 
         // Close modal
@@ -1416,12 +1434,13 @@
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    const formDataObj = new FormData(form);
     const formData = {
-      first_name: form.firstName.value,
-      last_name: form.lastName.value,
-      email: form.email.value,
-      channel_url: form.channelUrl.value,
-      newsletter: form.newsletter.checked
+      first_name: formDataObj.get('firstName'),
+      last_name: formDataObj.get('lastName'),
+      email: formDataObj.get('email'),
+      channel_url: formDataObj.get('channelUrl'),
+      newsletter: formDataObj.has('newsletter') // true if checked, false if not
     };
 
     const { data, error } = await supabaseClient
