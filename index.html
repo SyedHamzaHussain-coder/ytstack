@@ -1,130 +1,1439 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="AI-powered tools for YouTube creators — generate titles, scripts, and video ideas in seconds.">
-  <meta name="keywords" content="YouTube tools, AI content, YT automation, video titles, scripts">
-  <meta name="author" content="YTStack.tech">
-  <title>YTStack.tech - AI Tools for YouTubers</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #121212, #1c1c1c);
-      color: white;
-      overflow-x: hidden;
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .btn-primary {
-      background-color: #ff3c78;
-      border: none;
-    }
-
-    .btn-primary:hover {
-      background-color: #ff1e62;
-    }
-
-    .hero {
-      padding: 4rem 1rem;
-      text-align: center;
-    }
-
-    .mockup {
-      max-width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      margin-top: 2rem;
-    }
-  </style>
-</head>
-
-<body>
-  <header class="hero">
-    <h1 class="display-4 fw-bold">YTStack.tech</h1>
-    <p class="lead">Your AI-powered productivity stack for YouTube</p>
-    <p>Create powerful titles, compelling scripts, and viral video ideas — in seconds.</p>
-    <a href="#waitlist" class="btn btn-primary btn-lg mt-3">Join the Waitlist</a>
-  </header>
-
-  <section class="container">
-    <div class="glass">
-      <h2 class="fw-bold mb-3">✨ Why YTStack?</h2>
-      <ul>
-        <li><strong>Instant Video Titles:</strong> Catchy, SEO-optimized, click-worthy.</li>
-        <li><strong>Script Generator:</strong> Outline and write full video scripts in your voice.</li>
-        <li><strong>AI Brainstorming:</strong> Endless video ideas tailored to your niche.</li>
-        <li><strong>Thumbnails (Coming Soon):</strong> Auto-generated eye-popping visuals.</li>
-      </ul>
-    </div>
-
-    <div class="glass text-center">
-      <h2 class="fw-bold mb-3">🎥 See YTStack in Action</h2>
-      <img src="https://dummyimage.com/800x450/000/fff&text=Tool+UI+Mockup" alt="Tool Mockup" class="mockup">
-    </div>
-
-    <div id="waitlist" class="glass">
-      <h2 class="fw-bold mb-3">🚀 Be the First to Get Access</h2>
-      <form action="https://send.pageclip.co/qnpSBIu8JsfMMyh6X29XXo1uK11Blz9a/waitlist-emails" class="pageclip-form" method="post">
-        <div class="mb-3">
-          <label for="name" class="form-label">Your Name</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="e.g., Hamza" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
-        </div>
-        <div class="mb-3">
-          <label for="hasChannel" class="form-label">Do you currently run a YouTube channel?</label>
-          <select class="form-control" id="hasChannel" name="hasChannel" required>
-            <option value="">Select one</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <button type="submit" class="pageclip-form__submit">
-          <span>Join Waitlist</span>
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="text-center mt-4 mb-3">
-    <p>&copy; 2025 YTStack.tech — Built for creators, by creators.</p>
-  </footer>
-
-  <script>
-    function handleSubmit(event) {
-      event.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const hasChannel = document.getElementById("hasChannel").value;
-
-      if (!name || !email || !hasChannel) {
-        alert("Please fill in all fields.");
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YTStack.tech - AI Tools for YouTube Creators</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#FF2E63", secondary: "#1A1A2E" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: #0A0A0F;
+          color: #E5E5E5;
       }
+      .hero-gradient {
+          background: linear-gradient(135deg, #1A1A2E 0%, #0A0A0F 100%);
+      }
+      .glass-effect {
+          background: rgba(26, 26, 46, 0.6);
+          backdrop-filter: blur(3px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .feature-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .feature-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .testimonial-card {
+          transition: transform 0.3s ease;
+      }
+      .testimonial-card:hover {
+          transform: scale(1.02);
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+      .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+      .custom-switch {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 24px;
+      }
+      .custom-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      .switch-slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #2D2D3A;
+          transition: .4s;
+          border-radius: 34px;
+      }
+      .switch-slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+      }
+      input:checked + .switch-slider {
+          background-color: #FF2E63;
+      }
+      input:checked + .switch-slider:before {
+          transform: translateX(26px);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 glass-effect rounded-xl px-2 py-0"
+    >
+      <div class="container mx-auto px-4 py-1 flex justify-between items-center min-h-0 h-16 md:h-20">
+        <a href="#" class="flex items-center p-0 m-0 relative">
+          <img src="images/ytstacklogo.png" alt="YTStack Logo" class="h-20 w-20 md:h-28 md:w-28 object-contain m-0 p-0 -my-4 md:-my-6" />
+        </a>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a
+            href="#features"
+            class="text-white/80 hover:text-primary transition-colors"
+            >Features</a
+          >
+          <a
+            href="#demo"
+            class="text-white/80 hover:text-primary transition-colors"
+            >Demo</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white/80 hover:text-primary transition-colors"
+            >Testimonials</a
+          >
+          <a
+            href="#waitlist"
+            class="bg-primary text-white px-5 py-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors"
+            >Join Waitlist</a
+          >
+        </div>
+        <button
+          class="md:hidden text-white w-10 h-10 flex items-center justify-center"
+          id="mobileMenuButton"
+        >
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        class="md:hidden hidden bg-[#0A0A0F]/95 backdrop-blur-md"
+        id="mobileMenu"
+      >
+        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <a
+            href="#features"
+            class="text-white/80 hover:text-primary transition-colors py-2"
+            >Features</a
+          >
+          <a
+            href="#demo"
+            class="text-white/80 hover:text-primary transition-colors py-2"
+            >Demo</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white/80 hover:text-primary transition-colors py-2"
+            >Testimonials</a
+          >
+          <a
+            href="#waitlist"
+            class="bg-primary text-white px-5 py-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors text-center"
+            >Join Waitlist</a
+          >
+        </div>
+      </div>
+    </nav>
 
-      // Simulate form submission
-      alert("Thanks for joining the waitlist, " + name + "!");
-      document.getElementById("waitlistForm").reset();
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-screen flex items-center pt-16"
+      style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20tech%20workspace%20with%20AI%20interface%2C%20glowing%20neon%20pink%20and%20blue%20elements%2C%20clean%20modern%20desk%20setup%20with%20holographic%20displays%20showing%20YouTube%20analytics%2C%20dark%20ambient%20lighting%2C%20cinematic%20composition%2C%20ultra-detailed%2C%208k%20resolution%2C%20professional%20photography&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[#0A0A0F]/90 to-[#0A0A0F]/60"
+      ></div>
+      <div class="container mx-auto px-4 py-20 relative z-10">
+        <div class="max-w-3xl">
+          <h1
+            class="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight"
+          >
+            Transform Your
+            <span class="text-primary">YouTube Content</span> With AI
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-white/80">
+            Create better videos faster with AI-powered tools designed
+            specifically for YouTube creators. Generate titles, write scripts,
+            plan content, and more.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#waitlist"
+              class="bg-primary text-white px-8 py-4 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-center text-lg font-semibold"
+            >
+              Join the Waitlist
+            </a>
+            <a
+              href="#demo"
+              class="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 !rounded-button whitespace-nowrap hover:bg-white/20 transition-all duration-300 text-center text-lg font-semibold"
+            >
+              See How It Works
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-[#0A0A0F]">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+            AI-Powered Tools for Creators
+          </h2>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+            YTStack combines multiple AI tools to streamline your YouTube
+            workflow and boost your productivity.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Feature 1 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg feature-card fade-in">
+            <div
+              class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-magic-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Title Generator
+            </h3>
+            <p class="text-white/70">
+              Create high-CTR, engaging titles that drive views and clicks. Our
+              AI analyzes trending patterns to suggest titles that work.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg feature-card fade-in">
+            <div
+              class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-draft-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-white">Script Writer</h3>
+            <p class="text-white/70">
+              Generate complete video scripts or outlines based on your topic.
+              Save hours of writing time while maintaining your unique voice.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg feature-card fade-in">
+            <div
+              class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-calendar-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Content Planner
+            </h3>
+            <p class="text-white/70">
+              Plan your content calendar with AI suggestions for topics that
+              resonate with your audience and align with current trends.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg feature-card fade-in">
+            <div
+              class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-lightbulb-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Idea Generator
+            </h3>
+            <p class="text-white/70">
+              Never run out of video ideas again. Our AI analyzes your channel
+              and niche to suggest fresh content ideas your audience will love.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-16 grid md:grid-cols-2 gap-8">
+          <!-- Feature 5 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg feature-card fade-in">
+            <div
+              class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-hashtag-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-white">Tag Optimizer</h3>
+            <p class="text-white/70">
+              Generate SEO-optimized tags that help your videos rank higher in
+              search results and get discovered by new viewers.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg feature-card fade-in">
+            <div
+              class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-bar-chart-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Performance Analyzer
+            </h3>
+            <p class="text-white/70">
+              Get AI-powered insights on your video performance and actionable
+              recommendations to improve engagement and growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 bg-[#0F0F17]">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+            See YTStack in Action
+          </h2>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+            Our intuitive interface makes it easy to create better YouTube
+            content in minutes, not hours.
+          </p>
+        </div>
+
+        <div class="relative max-w-5xl mx-auto fade-in">
+          <div class="bg-[#1A1A2E] rounded-xl p-4 md:p-6 shadow-2xl">
+            <div class="rounded-lg overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=modern%20AI%20dashboard%20interface%20with%20YouTube%20content%20creation%20tools%2C%20dark%20theme%20with%20neon%20pink%20accents%2C%20multiple%20panels%20showing%20video%20title%20suggestions%20and%20content%20planning%20features%2C%20clean%20UI%20design%2C%20professional%20software%20interface%2C%20ultra%20detailed%2C%208k%20resolution&width=1280&height=720&seq=demo1&orientation=landscape"
+                alt="YTStack Dashboard"
+                class="w-full h-auto object-top"
+              />
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="bg-[#0A0A0F] p-4 rounded-lg">
+                <div class="flex items-center mb-3">
+                  <div
+                    class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3"
+                  >
+                    <i class="ri-magic-line text-primary"></i>
+                  </div>
+                  <h4 class="font-semibold text-white">Title Generator</h4>
+                </div>
+                <img
+                  src="https://readdy.ai/api/search-image?query=AI%20interface%20showing%20YouTube%20title%20suggestions%20with%20engagement%20metrics%2C%20dark%20UI%20with%20pink%20highlights%2C%20professional%20software%20design%2C%20clean%20layout%20showing%20multiple%20title%20options%20with%20statistics%2C%20ultra%20detailed&width=400&height=200&seq=demo2&orientation=landscape"
+                  alt="Title Generator"
+                  class="w-full h-auto rounded-lg object-top"
+                />
+              </div>
+
+              <div class="bg-[#0A0A0F] p-4 rounded-lg">
+                <div class="flex items-center mb-3">
+                  <div
+                    class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3"
+                  >
+                    <i class="ri-draft-line text-primary"></i>
+                  </div>
+                  <h4 class="font-semibold text-white">Script Writer</h4>
+                </div>
+                <img
+                  src="https://readdy.ai/api/search-image?query=AI%20script%20writing%20interface%20with%20text%20editor%20and%20suggestions%20panel%2C%20dark%20theme%20with%20pink%20accents%2C%20professional%20content%20creation%20software%2C%20showing%20paragraph%20structure%20and%20formatting%20tools%2C%20ultra%20detailed&width=400&height=200&seq=demo3&orientation=landscape"
+                  alt="Script Writer"
+                  class="w-full h-auto rounded-lg object-top"
+                />
+              </div>
+
+              <div class="bg-[#0A0A0F] p-4 rounded-lg">
+                <div class="flex items-center mb-3">
+                  <div
+                    class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3"
+                  >
+                    <i class="ri-calendar-line text-primary"></i>
+                  </div>
+                  <h4 class="font-semibold text-white">Content Planner</h4>
+                </div>
+                <img
+                  src="https://readdy.ai/api/search-image?query=AI%20content%20calendar%20interface%20with%20scheduled%20videos%20and%20topic%20suggestions%2C%20dark%20UI%20with%20pink%20highlights%2C%20professional%20planning%20software%2C%20showing%20timeline%20view%20with%20analytics%20integration%2C%20ultra%20detailed&width=400&height=200&seq=demo4&orientation=landscape"
+                  alt="Content Planner"
+                  class="w-full h-auto rounded-lg object-top"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Elements -->
+          <div
+            class="absolute -top-8 -left-8 w-16 h-16 bg-primary/20 rounded-full blur-xl"
+          ></div>
+          <div
+            class="absolute -bottom-10 -right-10 w-20 h-20 bg-primary/20 rounded-full blur-xl"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 bg-[#0A0A0F]">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+            How YTStack Works
+          </h2>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+            Our AI-powered platform is designed to simplify your YouTube content
+            creation process.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Step 1 -->
+          <div class="relative fade-in">
+            <div class="bg-[#1A1A2E] p-6 rounded-lg h-full">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary font-bold text-xl"
+              >
+                1
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                Input Your Topic
+              </h3>
+              <p class="text-white/70">
+                Start by entering your video topic or niche. The more specific
+                you are, the better results you'll get.
+              </p>
+            </div>
+            <div
+              class="hidden md:block absolute top-1/2 -right-4 transform translate-x-1/2 -translate-y-1/2 z-10"
+            >
+              <i class="ri-arrow-right-line text-primary ri-xl"></i>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative fade-in">
+            <div class="bg-[#1A1A2E] p-6 rounded-lg h-full">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary font-bold text-xl"
+              >
+                2
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                Choose Your Tools
+              </h3>
+              <p class="text-white/70">
+                Select which tools you need for your current project: titles,
+                scripts, content planning, or idea generation.
+              </p>
+            </div>
+            <div
+              class="hidden md:block absolute top-1/2 -right-4 transform translate-x-1/2 -translate-y-1/2 z-10"
+            >
+              <i class="ri-arrow-right-line text-primary ri-xl"></i>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="fade-in">
+            <div class="bg-[#1A1A2E] p-6 rounded-lg h-full">
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary font-bold text-xl"
+              >
+                3
+              </div>
+              <h3 class="text-xl font-semibold mb-3 text-white">
+                Get AI Results
+              </h3>
+              <p class="text-white/70">
+                Review AI-generated suggestions, edit as needed, and export your
+                content ready to use for your next video.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-[#0F0F17]">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+            What Creators Are Saying
+          </h2>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+            Early access users are already seeing the benefits of YTStack in
+            their content creation process.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg testimonial-card fade-in">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20male%20tech%20YouTuber%20with%20glasses%2C%20neutral%20expression%2C%20high%20quality%20portrait%2C%20studio%20lighting%2C%20clean%20background&width=100&height=100&seq=test1&orientation=squarish"
+                  alt="Alex Mitchell"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-semibold text-white">Alex Mitchell</h4>
+                <p class="text-white/60 text-sm">
+                  Tech Reviewer, 250K subscribers
+                </p>
+              </div>
+            </div>
+            <div class="flex mb-4 text-primary">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <p class="text-white/80 italic">
+              "YTStack has cut my content planning time in half. The title
+              generator alone has increased my CTR by 30% on average. This is a
+              game-changer for serious creators."
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg testimonial-card fade-in">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20female%20lifestyle%20YouTuber%20with%20long%20hair%2C%20friendly%20smile%2C%20high%20quality%20portrait%2C%20studio%20lighting%2C%20clean%20background&width=100&height=100&seq=test2&orientation=squarish"
+                  alt="Sarah Johnson"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-semibold text-white">Sarah Johnson</h4>
+                <p class="text-white/60 text-sm">
+                  Lifestyle Creator, 120K subscribers
+                </p>
+              </div>
+            </div>
+            <div class="flex mb-4 text-primary">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-half-fill"></i>
+            </div>
+            <p class="text-white/80 italic">
+              "As someone who struggled with scripts, the script writer has been
+              invaluable. It captures my voice perfectly while helping me
+              structure my thoughts. Highly recommend!"
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-[#1A1A2E] p-6 rounded-lg testimonial-card fade-in">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20male%20gaming%20YouTuber%20with%20casual%20style%2C%20confident%20expression%2C%20high%20quality%20portrait%2C%20studio%20lighting%2C%20clean%20background&width=100&height=100&seq=test3&orientation=squarish"
+                  alt="Marcus Chen"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-semibold text-white">Marcus Chen</h4>
+                <p class="text-white/60 text-sm">
+                  Gaming Channel, 500K subscribers
+                </p>
+              </div>
+            </div>
+            <div class="flex mb-4 text-primary">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+            <p class="text-white/80 italic">
+              "The content planner has revolutionized how I approach my upload
+              schedule. I'm now able to batch create content efficiently and
+              stay ahead of trends. Worth every penny!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-[#0A0A0F]">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Simple, Transparent Pricing
+          </h2>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+            Choose the plan that fits your channel's needs. All plans include
+            access to our core AI tools.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Basic Plan -->
+          <div class="bg-[#1A1A2E] rounded-lg overflow-hidden fade-in">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2 text-white">Creator</h3>
+              <p class="text-white/70 mb-4">
+                Perfect for new and growing channels
+              </p>
+              <div class="flex items-end mb-6">
+                <span class="text-4xl font-bold text-white">$19</span>
+                <span class="text-white/70 ml-1 mb-1">/month</span>
+              </div>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">All core AI tools</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">50 AI generations per month</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Basic analytics</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Email support</span>
+                </li>
+              </ul>
+            </div>
+            <div class="px-6 pb-6">
+              <button
+                class="w-full bg-white/10 text-white py-3 !rounded-button whitespace-nowrap hover:bg-white/20 transition-colors font-semibold"
+              >
+                Join Waitlist
+              </button>
+            </div>
+          </div>
+
+          <!-- Pro Plan -->
+          <div
+            class="bg-[#1A1A2E] rounded-lg overflow-hidden border-2 border-primary relative fade-in transform md:scale-105 z-10"
+          >
+            <div
+              class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1"
+            >
+              MOST POPULAR
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2 text-white">Professional</h3>
+              <p class="text-white/70 mb-4">For serious content creators</p>
+              <div class="flex items-end mb-6">
+                <span class="text-4xl font-bold text-white">$39</span>
+                <span class="text-white/70 ml-1 mb-1">/month</span>
+              </div>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">All core AI tools</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80"
+                    >200 AI generations per month</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Advanced analytics</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Priority support</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Competitor analysis</span>
+                </li>
+              </ul>
+            </div>
+            <div class="px-6 pb-6">
+              <button
+                class="w-full bg-primary text-white py-3 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-semibold"
+              >
+                Join Waitlist
+              </button>
+            </div>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="bg-[#1A1A2E] rounded-lg overflow-hidden fade-in">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2 text-white">Enterprise</h3>
+              <p class="text-white/70 mb-4">For teams and large channels</p>
+              <div class="flex items-end mb-6">
+                <span class="text-4xl font-bold text-white">$99</span>
+                <span class="text-white/70 ml-1 mb-1">/month</span>
+              </div>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">All core AI tools</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Unlimited AI generations</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Premium analytics</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Dedicated support</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">Team collaboration</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="ri-check-line text-primary ri-lg mt-0.5 mr-2"></i>
+                  <span class="text-white/80">API access</span>
+                </li>
+              </ul>
+            </div>
+            <div class="px-6 pb-6">
+              <button
+                class="w-full bg-white/10 text-white py-3 !rounded-button whitespace-nowrap hover:bg-white/20 transition-colors font-semibold"
+              >
+                Join Waitlist
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center text-white/70 max-w-3xl mx-auto fade-in">
+          <p>
+            All plans include a 14-day money-back guarantee. Prices shown are
+            for annual billing. Monthly billing is also available.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-[#0F0F17]">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+            Everything you need to know about YTStack and how it can help your
+            channel grow.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-6">
+          <!-- FAQ Item 1 -->
+          <div class="bg-[#1A1A2E] rounded-lg p-6 fade-in">
+            <button
+              class="flex justify-between items-center w-full text-left"
+              data-faq-toggle
+            >
+              <h3 class="text-xl font-semibold text-white">
+                How does YTStack's AI work?
+              </h3>
+              <i
+                class="ri-arrow-down-s-line text-primary ri-lg transition-transform"
+              ></i>
+            </button>
+            <div class="mt-4 hidden" data-faq-content>
+              <p class="text-white/70">
+                YTStack uses advanced natural language processing models trained
+                on millions of successful YouTube videos. Our AI analyzes
+                patterns, trends, and performance metrics to generate content
+                suggestions tailored to your channel's niche and audience
+                preferences.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="bg-[#1A1A2E] rounded-lg p-6 fade-in">
+            <button
+              class="flex justify-between items-center w-full text-left"
+              data-faq-toggle
+            >
+              <h3 class="text-xl font-semibold text-white">
+                Will content created with YTStack be original?
+              </h3>
+              <i
+                class="ri-arrow-down-s-line text-primary ri-lg transition-transform"
+              ></i>
+            </button>
+            <div class="mt-4 hidden" data-faq-content>
+              <p class="text-white/70">
+                Absolutely! YTStack generates unique content based on your
+                inputs and channel style. The AI provides suggestions and
+                frameworks that you can customize to maintain your authentic
+                voice. All content is original and not copied from existing
+                sources.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="bg-[#1A1A2E] rounded-lg p-6 fade-in">
+            <button
+              class="flex justify-between items-center w-full text-left"
+              data-faq-toggle
+            >
+              <h3 class="text-xl font-semibold text-white">
+                Can I cancel my subscription anytime?
+              </h3>
+              <i
+                class="ri-arrow-down-s-line text-primary ri-lg transition-transform"
+              ></i>
+            </button>
+            <div class="mt-4 hidden" data-faq-content>
+              <p class="text-white/70">
+                Yes, you can cancel your subscription at any time with no
+                questions asked. If you cancel within the first 14 days, you're
+                eligible for a full refund under our money-back guarantee
+                policy.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="bg-[#1A1A2E] rounded-lg p-6 fade-in">
+            <button
+              class="flex justify-between items-center w-full text-left"
+              data-faq-toggle
+            >
+              <h3 class="text-xl font-semibold text-white">
+                Does YTStack integrate with YouTube directly?
+              </h3>
+              <i
+                class="ri-arrow-down-s-line text-primary ri-lg transition-transform"
+              ></i>
+            </button>
+            <div class="mt-4 hidden" data-faq-content>
+              <p class="text-white/70">
+                Currently, YTStack works as a standalone platform where you can
+                generate content and export it to use on YouTube. We're working
+                on direct YouTube API integration for future releases, which
+                will allow for seamless publishing and analytics tracking.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="bg-[#1A1A2E] rounded-lg p-6 fade-in">
+            <button
+              class="flex justify-between items-center w-full text-left"
+              data-faq-toggle
+            >
+              <h3 class="text-xl font-semibold text-white">
+                When will YTStack be available?
+              </h3>
+              <i
+                class="ri-arrow-down-s-line text-primary ri-lg transition-transform"
+              ></i>
+            </button>
+            <div class="mt-4 hidden" data-faq-content>
+              <p class="text-white/70">
+                We're currently in closed beta with select creators. Join our
+                waitlist to be notified when we launch publicly. Early waitlist
+                members will receive special pricing and bonus features when we
+                launch.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section
+      id="waitlist"
+      class="py-20 bg-[#0A0A0F]"
+      style="background-image: url('https://readdy.ai/api/search-image?query=abstract%20digital%20network%20pattern%20with%20glowing%20pink%20and%20blue%20nodes%2C%20dark%20background%2C%20futuristic%20technology%20concept%2C%20minimal%20design%2C%20subtle%20gradient%2C%20professional%20tech%20background%2C%20ultra%20detailed&width=1920&height=1080&seq=waitlist&orientation=landscape'); background-size: cover; background-position: center;"
+    >
+      <div class="container mx-auto px-4 relative">
+        <div class="absolute inset-0 bg-[#0A0A0F]/80 backdrop-blur-sm"></div>
+
+        <div
+          class="relative z-10 max-w-3xl mx-auto glass-effect rounded-xl p-8 md:p-12 fade-in"
+        >
+          <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Join the Waitlist
+            </h2>
+            <p class="text-xl text-white/80">
+              Be among the first to access YTStack when we launch. Early members
+              receive exclusive benefits and pricing.
+            </p>
+          </div>
+
+          <form id="waitlistForm" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="firstName" class="block text-white/80 mb-2"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-primary transition-colors"
+                  placeholder="Your first name"
+                  required
+                />
+              </div>
+              <div>
+                <label for="lastName" class="block text-white/80 mb-2"
+                  >Last Name</label
+                >
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-primary transition-colors"
+                  placeholder="Your last name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="block text-white/80 mb-2"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-primary transition-colors"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="channelUrl" class="block text-white/80 mb-2"
+                >YouTube Channel URL (Optional)</label
+              >
+              <input
+                type="url"
+                id="channelUrl"
+                name="channelUrl"
+                class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-primary transition-colors"
+                placeholder="https://youtube.com/c/yourchannel"
+              />
+            </div>
+
+            <div>
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="newsletter"
+                  class="hidden"
+                  id="newsletterCheckbox"
+                />
+                <span
+                  class="w-5 h-5 inline-block mr-2 rounded border border-white/30 flex-shrink-0 relative"
+                  id="customCheckbox"
+                >
+                  <span
+                    class="absolute inset-0 hidden bg-primary rounded-sm flex items-center justify-center"
+                    id="checkboxIndicator"
+                  >
+                    <i class="ri-check-line text-white text-xs"></i>
+                  </span>
+                </span>
+                <span class="text-white/80"
+                  >Subscribe to our newsletter for updates and tips</span
+                >
+              </label>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="w-full bg-primary text-white py-4 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-all duration-300 transform hover:scale-[1.02] font-semibold text-lg"
+              >
+                Join the Waitlist
+              </button>
+            </div>
+
+            <p class="text-white/60 text-center text-sm">
+              By joining, you agree to our
+              <a href="#" class="text-primary hover:underline"
+                >Terms of Service</a
+              >
+              and
+              <a href="#" class="text-primary hover:underline">Privacy Policy</a
+              >.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A0A0F] border-t border-white/10 pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+          <div>
+            <a
+              href="#"
+              class="text-2xl font-['Pacifico'] text-white mb-4 inline-block"
+              >YTStack</a
+            >
+            <p class="text-white/60 mb-6">
+              AI-powered tools to help YouTube creators save time and boost
+              productivity.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary/20 transition-colors"
+              >
+                <i class="ri-twitter-x-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary/20 transition-colors"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary/20 transition-colors"
+              >
+                <i class="ri-youtube-line"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary/20 transition-colors"
+              >
+                <i class="ri-linkedin-line"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Product</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#features"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Roadmap</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Beta Program</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Resources</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Tutorials</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >API Docs</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Company</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-white/60 hover:text-primary transition-colors"
+                  >Legal</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-white/60 text-sm mb-4 md:mb-0">
+            © 2025 YTStack.tech. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-white/60 text-sm hover:text-primary transition-colors"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="text-white/60 text-sm hover:text-primary transition-colors"
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              class="text-white/60 text-sm hover:text-primary transition-colors"
+              >Cookie Policy</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="backToTop"
+      class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50"
+    >
+      <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+
+    <!-- Success Modal -->
+    <div
+      id="successModal"
+      class="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm hidden"
+    >
+      <div class="bg-[#1A1A2E] rounded-xl p-8 max-w-md w-full mx-4">
+        <div class="text-center mb-6">
+          <div
+            class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <i class="ri-check-line text-primary ri-2x"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">
+            You're on the list!
+          </h3>
+          <p class="text-white/70">
+            Thanks for joining our waitlist. We'll notify you when YTStack
+            launches.
+          </p>
+        </div>
+        <button
+          id="closeModal"
+          class="w-full bg-primary text-white py-3 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-semibold"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Script -->
+    <script id="mobileMenuScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+
+          // Change icon based on menu state
+          const icon = mobileMenuButton.querySelector("i");
+          if (mobileMenu.classList.contains("hidden")) {
+            icon.className = "ri-menu-line ri-lg";
+          } else {
+            icon.className = "ri-close-line ri-lg";
+          }
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.querySelector("i").className = "ri-menu-line ri-lg";
+          });
+        });
+      });
+    </script>
+
+    <!-- Scroll Animation Script -->
+    <script id="scrollAnimationScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const fadeElements = document.querySelectorAll(".fade-in");
+        const backToTopButton = document.getElementById("backToTop");
+
+        // Function to check if an element is in viewport
+        function isInViewport(element) {
+          const rect = element.getBoundingClientRect();
+          return (
+            rect.top <=
+            (window.innerHeight || document.documentElement.clientHeight) * 0.85
+          );
+        }
+
+        // Function to handle scroll animations
+        function handleScrollAnimations() {
+          fadeElements.forEach((element) => {
+            if (isInViewport(element)) {
+              element.classList.add("visible");
+            }
+          });
+
+          // Show/hide back to top button
+          if (window.scrollY > 500) {
+            backToTopButton.classList.remove("translate-y-20", "opacity-0");
+            backToTopButton.classList.add("translate-y-0", "opacity-100");
+          } else {
+            backToTopButton.classList.add("translate-y-20", "opacity-0");
+            backToTopButton.classList.remove("translate-y-0", "opacity-100");
+          }
+        }
+
+        // Initial check for elements in viewport
+        handleScrollAnimations();
+
+        // Listen for scroll events
+        window.addEventListener("scroll", handleScrollAnimations);
+
+        // Back to top button functionality
+        backToTopButton.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for header height
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+
+    <!-- FAQ Toggle Script -->
+    <script id="faqToggleScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqToggles = document.querySelectorAll("[data-faq-toggle]");
+
+        faqToggles.forEach((toggle) => {
+          toggle.addEventListener("click", function () {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector("i");
+
+            // Toggle content visibility
+            content.classList.toggle("hidden");
+
+            // Rotate icon
+            if (content.classList.contains("hidden")) {
+              icon.style.transform = "rotate(0deg)";
+            } else {
+              icon.style.transform = "rotate(180deg)";
+            }
+          });
+        });
+      });
+    </script>
+
+    <!-- Form Handling Script -->
+    <script id="formHandlingScript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const waitlistForm = document.getElementById("waitlistForm");
+        const successModal = document.getElementById("successModal");
+        const closeModal = document.getElementById("closeModal");
+        const customCheckbox = document.getElementById("customCheckbox");
+        const checkboxIndicator = document.getElementById("checkboxIndicator");
+        const newsletterCheckbox = document.getElementById("newsletterCheckbox");
+
+        // Custom checkbox functionality
+        customCheckbox.addEventListener("click", function () {
+          newsletterCheckbox.checked = !newsletterCheckbox.checked;
+          if (newsletterCheckbox.checked) {
+            checkboxIndicator.classList.remove("hidden");
+          } else {
+            checkboxIndicator.classList.add("hidden");
+          }
+        });
+
+        // Form submission
+        waitlistForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Here you would normally send the form data to your backend
+          // For demo purposes, we'll just show the success modal
+          successModal.classList.remove("hidden");
+        });
+
+        // Close modal
+        closeModal.addEventListener("click", function () {
+          successModal.classList.add("hidden");
+          waitlistForm.reset();
+          checkboxIndicator.classList.add("hidden");
+        });
+      });
+    </script>
+    <!-- Supabase JS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const form = document.getElementById("waitlistForm");
+
+  const supabase = supabase.createClient(
+    "https://qkzmoedxxioekwthclje.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrem1vZWR4eGlvZWt3dGhjbGplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5NTQ1ODYsImV4cCI6MjA2NjUzMDU4Nn0.TwmvOiyEJGRKoolHSK1nomEejwTYKZUEl4tNwvqwFug"
+  );
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = {
+      first_name: form.firstName.value,
+      last_name: form.lastName.value,
+      email: form.email.value,
+      channel_url: form.channelUrl.value,
+      newsletter: form.newsletter.checked
+    };
+
+    const { data, error } = await supabase
+      .from("waitlist")
+      .insert([formData]);
+
+    if (error) {
+      alert("❌ Something went wrong. Try again.");
+      console.error(error);
+    } else {
+      alert("✅ Successfully added to waitlist!");
+      form.reset();
     }
+  });
   </script>
-  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
-</body>
-
+  </body>
 </html>
