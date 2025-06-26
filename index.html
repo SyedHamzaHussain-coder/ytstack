@@ -1402,38 +1402,39 @@
       });
     </script>
     <!-- Supabase JS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  const form = document.getElementById("waitlistForm");
-
-  const supabase = supabase.createClient(
-    "https://qkzmoedxxioekwthclje.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrem1vZWR4eGlvZWt3dGhjbGplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5NTQ1ODYsImV4cCI6MjA2NjUzMDU4Nn0.TwmvOiyEJGRKoolHSK1nomEejwTYKZUEl4tNwvqwFug"
-  );
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const formData = {
-      first_name: form.firstName.value,
-      last_name: form.lastName.value,
-      email: form.email.value,
-      channel_url: form.channelUrl.value,
-      newsletter: form.newsletter.checked
-    };
-
-    const { data, error } = await supabase
-      .from("waitlist")
-      .insert([formData]);
-
-    if (error) {
-      alert("❌ Something went wrong. Try again.");
-      console.error(error);
-    } else {
-      alert("✅ Successfully added to waitlist!");
-      form.reset();
-    }
-  });
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      const form = document.getElementById("waitlistForm");
+    
+      // Correctly initialize the Supabase client
+      const supabase = supabase.createClient(
+        "https://qkzmoedxxioekwthclje.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrem1vZWR4eGlvZWt3dGhjbGplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5NTQ1ODYsImV4cCI6MjA2NjUzMDU4Nn0.TwmvOiyEJGRKoolHSK1nomEejwTYKZUEl4tNwvqwFug" // Replace with your actual anon key
+      );
+    
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+    
+        const formData = {
+          first_name: form.firstName.value,
+          last_name: form.lastName.value,
+          email: form.email.value,
+          channel_url: form.channelUrl.value,
+          newsletter: form.newsletter.checked
+        };
+    
+        const { data, error } = await supabase
+          .from("waitlist")
+          .insert([formData]);
+    
+        if (error) {
+          alert("❌ Something went wrong. Try again.");
+          console.error(error);
+        } else {
+          alert("✅ Successfully added to waitlist!");
+          form.reset();
+        }
+      });
+    </script>
   </body>
 </html>
