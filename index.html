@@ -1386,30 +1386,36 @@
 
         // Form submission
         waitlistForm.addEventListener("submit", async function (e) {
+          console.log("Form submit event triggered");
           e.preventDefault();
 
-          const formDataObj = new FormData(waitlistForm);
-          const formData = {
-            first_name: formDataObj.get('firstName'),
-            last_name: formDataObj.get('lastName'),
-            email: formDataObj.get('email'),
-            channel_url: formDataObj.get('channelUrl'),
-            newsletter: newsletterCheckbox.checked
-          };
+          try {
+            const formDataObj = new FormData(waitlistForm);
+            const formData = {
+              first_name: formDataObj.get('firstName'),
+              last_name: formDataObj.get('lastName'),
+              email: formDataObj.get('email'),
+              channel_url: formDataObj.get('channelUrl'),
+              newsletter: newsletterCheckbox.checked
+            };
 
-          console.log('Form data being sent:', formData); // Debug log
+            console.log('Form data being sent:', formData); // Debug log
 
-          const { data, error } = await supabaseClient
-            .from("waitlist")
-            .insert([formData]);
+            const { data, error } = await supabaseClient
+              .from("waitlist")
+              .insert([formData]);
 
-          if (error) {
-            alert("❌ Something went wrong. Try again.");
-            console.error(error);
-          } else {
-            alert("✅ Successfully added to waitlist!");
-            waitlistForm.reset();
-            checkboxIndicator.classList.add("hidden");
+            if (error) {
+              alert("❌ Something went wrong. Try again.");
+              console.error(error);
+            } else {
+              alert("✅ Successfully added to waitlist!");
+              waitlistForm.reset();
+              checkboxIndicator.classList.add("hidden");
+            }
+          } catch (err) {
+            console.error('Unexpected error during form submission:', err);
+            alert("❌ An unexpected error occurred. Please try again.");
           }
         });
 
