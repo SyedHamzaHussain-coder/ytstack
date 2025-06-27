@@ -1394,8 +1394,10 @@
             last_name: formDataObj.get('lastName'),
             email: formDataObj.get('email'),
             channel_url: formDataObj.get('channelUrl'),
-            newsletter: formDataObj.has('newsletter') // true if checked, false if not
+            newsletter: newsletterCheckbox.checked
           };
+
+          console.log('Form data being sent:', formData); // Debug log
 
           const { data, error } = await supabaseClient
             .from("waitlist")
