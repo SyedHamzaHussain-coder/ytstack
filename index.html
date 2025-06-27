@@ -1367,6 +1367,13 @@
     <!-- Form Handling Script -->
     <script id="formHandlingScript">
       document.addEventListener("DOMContentLoaded", function () {
+        // Supabase initialization
+        const supabaseUrl = "https://qkzmoedxxioekwthclje.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrem1vZWR4eGlvZWt3dGhjbGplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5NTQ1ODYsImV4cCI6MjA2NjUzMDU4Nn0.TwmvOiyEJGRKoolHSK1nomEejwTYKZUEl4tNwvqwFug";
+        const { createClient } = supabase;
+        const supabaseClient = createClient(supabaseUrl, supabaseKey);
+
+        console.log("DOM loaded, initializing form handler");
         const waitlistForm = document.getElementById("waitlistForm");
         const successModal = document.getElementById("successModal");
         const closeModal = document.getElementById("closeModal");
