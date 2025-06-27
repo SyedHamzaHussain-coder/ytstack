@@ -1421,40 +1421,5 @@
     </script>
     <!-- Supabase JS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  const form = document.getElementById("waitlistForm");
-
-  // Fix: Use the global supabase object from the CDN
-  const { createClient } = supabase;
-  const supabaseClient = createClient(
-    "https://qkzmoedxxioekwthclje.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrem1vZWR4eGlvZWt3dGhjbGplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5NTQ1ODYsImV4cCI6MjA2NjUzMDU4Nn0.TwmvOiyEJGRKoolHSK1nomEejwTYKZUEl4tNwvqwFug"
-  );
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const formDataObj = new FormData(form);
-    const formData = {
-      first_name: formDataObj.get('firstName'),
-      last_name: formDataObj.get('lastName'),
-      email: formDataObj.get('email'),
-      channel_url: formDataObj.get('channelUrl'),
-      newsletter: formDataObj.has('newsletter') // true if checked, false if not
-    };
-
-    const { data, error } = await supabaseClient
-      .from("waitlist")
-      .insert([formData]);
-
-    if (error) {
-      alert("❌ Something went wrong. Try again.");
-      console.error(error);
-    } else {
-      alert("✅ Successfully added to waitlist!");
-      form.reset();
-    }
-  });
-</script>
   </body>
 </html>
