@@ -989,27 +989,27 @@
             </div>
 
             <div>
-              <label class="flex items-center">
+              <label for="newsletterCheckbox" class="flex items-center cursor-pointer">
                 <input
                   type="checkbox"
                   name="newsletter"
-                  class="hidden"
                   id="newsletterCheckbox"
+                  class="hidden"
                 />
                 <span
                   class="w-5 h-5 inline-block mr-2 rounded border border-white/30 flex-shrink-0 relative"
                   id="customCheckbox"
                 >
                   <span
-                    class="absolute inset-0 hidden bg-primary rounded-sm flex items-center justify-center"
+                    class="absolute inset-0 bg-primary rounded-sm flex items-center justify-center hidden"
                     id="checkboxIndicator"
                   >
                     <i class="ri-check-line text-white text-xs"></i>
                   </span>
                 </span>
-                <span class="text-white/80"
-                  >Subscribe to our newsletter for updates and tips</span
-                >
+                <span class="text-white/80">
+                  Subscribe to our newsletter for updates and tips
+                </span>
               </label>
             </div>
 
@@ -1381,14 +1381,22 @@
         const checkboxIndicator = document.getElementById("checkboxIndicator");
         const newsletterCheckbox = document.getElementById("newsletterCheckbox");
 
-        // Custom checkbox functionality
-        customCheckbox.addEventListener("click", function () {
-          newsletterCheckbox.checked = !newsletterCheckbox.checked;
+        // Show/hide indicator based on checkbox state
+        function updateCheckboxIndicator() {
           if (newsletterCheckbox.checked) {
             checkboxIndicator.classList.remove("hidden");
           } else {
             checkboxIndicator.classList.add("hidden");
           }
+        }
+        // Initial state
+        updateCheckboxIndicator();
+        // Listen for changes
+        newsletterCheckbox.addEventListener("change", updateCheckboxIndicator);
+        // Also allow clicking the custom box to toggle
+        customCheckbox.addEventListener("click", function () {
+          newsletterCheckbox.checked = !newsletterCheckbox.checked;
+          newsletterCheckbox.dispatchEvent(new Event('change'));
         });
 
         // Form submission
