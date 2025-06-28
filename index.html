@@ -40,6 +40,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
     />
+    <link rel="icon" type="image/png" href="images/ytstacklogo.png" />
     <style>
       :where([class^="ri-"])::before { content: "\f3c2"; }
       body {
@@ -128,29 +129,29 @@
     <nav
       class="fixed w-full z-50 glass-effect rounded-xl px-2 py-0"
     >
-      <div class="container mx-auto px-4 py-1 flex justify-between items-center min-h-0 h-16 md:h-20">
+      <div class="container mx-auto px-2 sm:px-4 py-1 flex justify-between items-center min-h-0 h-14 sm:h-16 md:h-20">
         <a href="#" class="flex items-center p-0 m-0 relative">
-          <img src="images/ytstacklogo.png" alt="YTStack Logo" class="h-20 w-20 md:h-28 md:w-28 object-contain m-0 p-0 -my-4 md:-my-6" />
+          <img src="images/ytstacklogo.png" alt="YTStack Logo" class="h-14 w-14 sm:h-20 sm:w-20 md:h-28 md:w-28 object-contain m-0 p-0 -my-2 sm:-my-4 md:-my-6" />
         </a>
-        <div class="hidden md:flex space-x-8 items-center">
+        <div class="hidden md:flex space-x-4 sm:space-x-8 items-center">
           <a
             href="#features"
-            class="text-white/80 hover:text-primary transition-colors"
+            class="text-xs sm:text-base text-white/80 hover:text-primary transition-colors"
             >Features</a
           >
           <a
             href="#demo"
-            class="text-white/80 hover:text-primary transition-colors"
+            class="text-xs sm:text-base text-white/80 hover:text-primary transition-colors"
             >Demo</a
           >
           <a
             href="#testimonials"
-            class="text-white/80 hover:text-primary transition-colors"
+            class="text-xs sm:text-base text-white/80 hover:text-primary transition-colors"
             >Testimonials</a
           >
           <a
             href="#waitlist"
-            class="bg-primary text-white px-5 py-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors"
+            class="bg-primary text-white px-3 sm:px-5 py-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors text-xs sm:text-base"
             >Join Waitlist</a
           >
         </div>
@@ -166,25 +167,25 @@
         class="md:hidden hidden bg-[#0A0A0F]/95 backdrop-blur-md"
         id="mobileMenu"
       >
-        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <div class="container mx-auto px-2 sm:px-4 py-4 flex flex-col space-y-2 sm:space-y-4">
           <a
             href="#features"
-            class="text-white/80 hover:text-primary transition-colors py-2"
+            class="text-white/80 hover:text-primary transition-colors py-2 text-sm sm:text-base"
             >Features</a
           >
           <a
             href="#demo"
-            class="text-white/80 hover:text-primary transition-colors py-2"
+            class="text-white/80 hover:text-primary transition-colors py-2 text-sm sm:text-base"
             >Demo</a
           >
           <a
             href="#testimonials"
-            class="text-white/80 hover:text-primary transition-colors py-2"
+            class="text-white/80 hover:text-primary transition-colors py-2 text-sm sm:text-base"
             >Testimonials</a
           >
           <a
             href="#waitlist"
-            class="bg-primary text-white px-5 py-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors text-center"
+            class="bg-primary text-white px-3 sm:px-5 py-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors text-center text-sm sm:text-base"
             >Join Waitlist</a
           >
         </div>
@@ -193,35 +194,35 @@
 
     <!-- Hero Section -->
     <section
-      class="relative min-h-screen flex items-center pt-16"
+      class="relative min-h-screen flex flex-col items-center pt-20 sm:pt-16"
       style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20tech%20workspace%20with%20AI%20interface%2C%20glowing%20neon%20pink%20and%20blue%20elements%2C%20clean%20modern%20desk%20setup%20with%20holographic%20displays%20showing%20YouTube%20analytics%2C%20dark%20ambient%20lighting%2C%20cinematic%20composition%2C%20ultra-detailed%2C%208k%20resolution%2C%20professional%20photography&width=1920&height=1080&seq=hero1&orientation=landscape'); background-size: cover; background-position: center;"
     >
       <div
         class="absolute inset-0 bg-gradient-to-r from-[#0A0A0F]/90 to-[#0A0A0F]/60"
       ></div>
-      <div class="container mx-auto px-4 py-20 relative z-10">
-        <div class="max-w-3xl">
+      <div class="container mx-auto px-2 sm:px-4 py-10 sm:py-20 relative z-10">
+        <div class="max-w-full sm:max-w-3xl">
           <h1
-            class="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight"
+            class="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight"
           >
             Transform Your
             <span class="text-primary">YouTube Content</span> With AI
           </h1>
-          <p class="text-xl md:text-2xl mb-8 text-white/80">
+          <p class="text-base sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white/80">
             Create better videos faster with AI-powered tools designed
             specifically for YouTube creators. Generate titles, write scripts,
             plan content, and more.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4">
+          <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
             <a
               href="#waitlist"
-              class="bg-primary text-white px-8 py-4 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-center text-lg font-semibold"
+              class="bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 text-center text-base sm:text-lg font-semibold"
             >
               Join the Waitlist
             </a>
             <a
               href="#demo"
-              class="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 !rounded-button whitespace-nowrap hover:bg-white/20 transition-all duration-300 text-center text-lg font-semibold"
+              class="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-6 sm:px-8 py-3 sm:py-4 !rounded-button whitespace-nowrap hover:bg-white/20 transition-all duration-300 text-center text-base sm:text-lg font-semibold"
             >
               See How It Works
             </a>
@@ -231,19 +232,18 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-20 bg-[#0A0A0F]">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16 fade-in">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+    <section id="features" class="py-12 sm:py-20 bg-[#0A0A0F]">
+      <div class="container mx-auto px-2 sm:px-4">
+        <div class="text-center mb-10 sm:mb-16 fade-in">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-white">
             AI-Powered Tools for Creators
           </h2>
-          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+          <p class="text-base sm:text-xl text-white/70 max-w-full sm:max-w-3xl mx-auto">
             YTStack combines multiple AI tools to streamline your YouTube
             workflow and boost your productivity.
           </p>
         </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
           <!-- Feature 1 -->
           <div class="bg-[#1A1A2E] p-6 rounded-lg feature-card fade-in">
             <div
@@ -342,20 +342,20 @@
     </section>
 
     <!-- Demo Section -->
-    <section id="demo" class="py-20 bg-[#0F0F17]">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16 fade-in">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+    <section id="demo" class="py-12 sm:py-20 bg-[#0F0F17]">
+      <div class="container mx-auto px-2 sm:px-4">
+        <div class="text-center mb-10 sm:mb-16 fade-in">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-white">
             See YTStack in Action
           </h2>
-          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+          <p class="text-base sm:text-xl text-white/70 max-w-full sm:max-w-3xl mx-auto">
             Our intuitive interface makes it easy to create better YouTube
             content in minutes, not hours.
           </p>
         </div>
 
-        <div class="relative max-w-5xl mx-auto fade-in">
-          <div class="bg-[#1A1A2E] rounded-xl p-4 md:p-6 shadow-2xl">
+        <div class="relative max-w-full sm:max-w-5xl mx-auto fade-in">
+          <div class="bg-[#1A1A2E] rounded-xl p-2 sm:p-4 md:p-6 shadow-2xl">
             <div class="rounded-lg overflow-hidden">
               <img
                 src="https://readdy.ai/api/search-image?query=modern%20AI%20dashboard%20interface%20with%20YouTube%20content%20creation%20tools%2C%20dark%20theme%20with%20neon%20pink%20accents%2C%20multiple%20panels%20showing%20video%20title%20suggestions%20and%20content%20planning%20features%2C%20clean%20UI%20design%2C%20professional%20software%20interface%2C%20ultra%20detailed%2C%208k%20resolution&width=1280&height=720&seq=demo1&orientation=landscape"
@@ -364,7 +364,7 @@
               />
             </div>
 
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="mt-4 sm:mt-8 grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-4">
               <div class="bg-[#0A0A0F] p-4 rounded-lg">
                 <div class="flex items-center mb-3">
                   <div
@@ -427,19 +427,19 @@
     </section>
 
     <!-- How It Works -->
-    <section class="py-20 bg-[#0A0A0F]">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16 fade-in">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+    <section class="py-12 sm:py-20 bg-[#0A0A0F]">
+      <div class="container mx-auto px-2 sm:px-4">
+        <div class="text-center mb-10 sm:mb-16 fade-in">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-white">
             How YTStack Works
           </h2>
-          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+          <p class="text-base sm:text-xl text-white/70 max-w-full sm:max-w-3xl mx-auto">
             Our AI-powered platform is designed to simplify your YouTube content
             creation process.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 max-w-full sm:max-w-5xl mx-auto">
           <!-- Step 1 -->
           <div class="relative fade-in">
             <div class="bg-[#1A1A2E] p-6 rounded-lg h-full">
@@ -508,19 +508,19 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-[#0F0F17]">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16 fade-in">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+    <section id="testimonials" class="py-12 sm:py-20 bg-[#0F0F17]">
+      <div class="container mx-auto px-2 sm:px-4">
+        <div class="text-center mb-10 sm:mb-16 fade-in">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-white">
             What Creators Are Saying
           </h2>
-          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+          <p class="text-base sm:text-xl text-white/70 max-w-full sm:max-w-3xl mx-auto">
             Early access users are already seeing the benefits of YTStack in
             their content creation process.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
           <!-- Testimonial 1 -->
           <div class="bg-[#1A1A2E] p-6 rounded-lg testimonial-card fade-in">
             <div class="flex items-center mb-4">
@@ -618,19 +618,19 @@
     </section>
 
     <!-- Pricing Section -->
-    <section class="py-20 bg-[#0A0A0F]">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16 fade-in">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+    <section class="py-12 sm:py-20 bg-[#0A0A0F]">
+      <div class="container mx-auto px-2 sm:px-4">
+        <div class="text-center mb-10 sm:mb-16 fade-in">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-white">
             Simple, Transparent Pricing
           </h2>
-          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+          <p class="text-base sm:text-xl text-white/70 max-w-full sm:max-w-3xl mx-auto">
             Choose the plan that fits your channel's needs. All plans include
             access to our core AI tools.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 max-w-full sm:max-w-5xl mx-auto">
           <!-- Basic Plan -->
           <div class="bg-[#1A1A2E] rounded-lg overflow-hidden fade-in">
             <div class="p-6">
@@ -776,19 +776,19 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-[#0F0F17]">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-16 fade-in">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+    <section class="py-12 sm:py-20 bg-[#0F0F17]">
+      <div class="container mx-auto px-2 sm:px-4">
+        <div class="text-center mb-10 sm:mb-16 fade-in">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-white">
             Frequently Asked Questions
           </h2>
-          <p class="text-xl text-white/70 max-w-3xl mx-auto">
+          <p class="text-base sm:text-xl text-white/70 max-w-full sm:max-w-3xl mx-auto">
             Everything you need to know about YTStack and how it can help your
             channel grow.
           </p>
         </div>
 
-        <div class="max-w-3xl mx-auto space-y-6">
+        <div class="max-w-full sm:max-w-3xl mx-auto space-y-4 sm:space-y-6">
           <!-- FAQ Item 1 -->
           <div class="bg-[#1A1A2E] rounded-lg p-6 fade-in">
             <button
@@ -912,27 +912,27 @@
     <!-- Waitlist Section -->
     <section
       id="waitlist"
-      class="py-20 bg-[#0A0A0F]"
+      class="py-12 sm:py-20 bg-[#0A0A0F]"
       style="background-image: url('https://readdy.ai/api/search-image?query=abstract%20digital%20network%20pattern%20with%20glowing%20pink%20and%20blue%20nodes%2C%20dark%20background%2C%20futuristic%20technology%20concept%2C%20minimal%20design%2C%20subtle%20gradient%2C%20professional%20tech%20background%2C%20ultra%20detailed&width=1920&height=1080&seq=waitlist&orientation=landscape'); background-size: cover; background-position: center;"
     >
-      <div class="container mx-auto px-4 relative">
+      <div class="container mx-auto px-2 sm:px-4 relative">
         <div class="absolute inset-0 bg-[#0A0A0F]/80 backdrop-blur-sm"></div>
 
         <div
-          class="relative z-10 max-w-3xl mx-auto glass-effect rounded-xl p-8 md:p-12 fade-in"
+          class="relative z-10 max-w-full sm:max-w-3xl mx-auto glass-effect rounded-xl p-4 sm:p-8 md:p-12 fade-in"
         >
-          <div class="text-center mb-8">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <div class="text-center mb-6 sm:mb-8">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-white">
               Join the Waitlist
             </h2>
-            <p class="text-xl text-white/80">
+            <p class="text-base sm:text-xl text-white/80">
               Be among the first to access YTStack when we launch. Early members
               receive exclusive benefits and pricing.
             </p>
           </div>
 
-          <form id="waitlistForm" class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-6">
+          <form id="waitlistForm" class="space-y-4 sm:space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div>
                 <label for="firstName" class="block text-white/80 mb-2"
                   >First Name</label
@@ -1037,15 +1037,15 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#0A0A0F] border-t border-white/10 pt-16 pb-8">
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-4 gap-8 mb-12">
+    <footer class="bg-[#0A0A0F] border-t border-white/10 pt-10 sm:pt-16 pb-6 sm:pb-8">
+      <div class="container mx-auto px-2 sm:px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-8 mb-8 sm:mb-12">
           <div>
-            <div class="flex items-center mb-4">
-              <img src="images/ytstacklogo.png" alt="YTStack Logo" class="h-16 w-16 object-contain mr-3" />
-              <a href="#" class="text-2xl font-['Pacifico'] text-white inline-block align-middle">YTStack</a>
+            <div class="flex flex-col items-center mb-4">
+              <img src="images/ytstacklogo.png" alt="YTStack Logo" class="h-24 w-24 object-contain mb-3" />
+              <a href="#" class="text-3xl font-['Pacifico'] text-white inline-block align-middle mt-0">YTStack</a>
             </div>
-            <p class="text-white/60 mb-6">
+            <p class="text-white/60 mb-6 text-center">
               AI-powered tools to help YouTube creators save time and boost
               productivity.
             </p>
@@ -1181,25 +1181,25 @@
         </div>
 
         <div
-          class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
+          class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center"
         >
-          <p class="text-white/60 text-sm mb-4 md:mb-0">
+          <p class="text-white/60 text-xs sm:text-sm mb-2 sm:mb-4 md:mb-0">
             © 2025 YTStack.tech. All rights reserved.
           </p>
-          <div class="flex space-x-6">
+          <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
             <a
               href="#"
-              class="text-white/60 text-sm hover:text-primary transition-colors"
+              class="text-white/60 text-xs sm:text-sm hover:text-primary transition-colors"
               >Privacy Policy</a
             >
             <a
               href="#"
-              class="text-white/60 text-sm hover:text-primary transition-colors"
+              class="text-white/60 text-xs sm:text-sm hover:text-primary transition-colors"
               >Terms of Service</a
             >
             <a
               href="#"
-              class="text-white/60 text-sm hover:text-primary transition-colors"
+              class="text-white/60 text-xs sm:text-sm hover:text-primary transition-colors"
               >Cookie Policy</a
             >
           </div>
