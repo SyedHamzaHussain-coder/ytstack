@@ -633,7 +633,7 @@
 
         <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <!-- Basic Plan -->
-          <div class="bg-[#1A1A2E] rounded-lg overflow-hidden fade-in">
+          <div class="bg-[#1A1A2E] rounded-lg overflow-hidden fade-in hover:border-2 hover:border-primary hover:transform hover:scale-105 hover:bg-[#1A1A2E]/60 hover:backdrop-blur-md transition-all duration-300 cursor-pointer">
             <div class="p-6">
               <h3 class="text-2xl font-bold mb-2 text-white">Creator</h3>
               <p class="text-white/70 mb-4">
@@ -663,17 +663,17 @@
               </ul>
             </div>
             <div class="px-6 pb-6">
-              <button
-                class="w-full bg-white/10 text-white py-3 !rounded-button whitespace-nowrap hover:bg-white/20 transition-colors font-semibold"
+              <a href="#waitlist"
+                class="w-full bg-gray-600 text-white py-3 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition-all duration-300 font-semibold inline-block text-center"
               >
                 Join Waitlist
-              </button>
+              </a>
             </div>
           </div>
 
           <!-- Pro Plan -->
           <div
-            class="bg-[#1A1A2E] rounded-lg overflow-hidden border-2 border-primary relative fade-in transform md:scale-105 z-10"
+            class="bg-[#1A1A2E] rounded-lg overflow-hidden fade-in hover:border-2 hover:border-primary hover:transform hover:scale-105 hover:bg-[#1A1A2E]/60 hover:backdrop-blur-md transition-all duration-300 cursor-pointer relative"
           >
             <div
               class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1"
@@ -713,16 +713,16 @@
               </ul>
             </div>
             <div class="px-6 pb-6">
-              <button
-                class="w-full bg-primary text-white py-3 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-semibold"
+              <a href="#waitlist"
+                class="w-full bg-gray-600 text-white py-3 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition-all duration-300 font-semibold inline-block text-center"
               >
                 Join Waitlist
-              </button>
+              </a>
             </div>
           </div>
 
           <!-- Enterprise Plan -->
-          <div class="bg-[#1A1A2E] rounded-lg overflow-hidden fade-in">
+          <div class="bg-[#1A1A2E] rounded-lg overflow-hidden fade-in hover:border-2 hover:border-primary hover:transform hover:scale-105 hover:bg-[#1A1A2E]/60 hover:backdrop-blur-md transition-all duration-300 cursor-pointer">
             <div class="p-6">
               <h3 class="text-2xl font-bold mb-2 text-white">Enterprise</h3>
               <p class="text-white/70 mb-4">For teams and large channels</p>
@@ -758,11 +758,11 @@
               </ul>
             </div>
             <div class="px-6 pb-6">
-              <button
-                class="w-full bg-white/10 text-white py-3 !rounded-button whitespace-nowrap hover:bg-white/20 transition-colors font-semibold"
+              <a href="#waitlist"
+                class="w-full bg-gray-600 text-white py-3 !rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition-all duration-300 font-semibold inline-block text-center"
               >
                 Join Waitlist
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -946,6 +946,7 @@
                   placeholder="Your first name"
                   required
                 />
+                <div id="firstNameError" class="hidden text-red-400 text-sm mt-1"></div>
               </div>
               <div>
                 <label for="lastName" class="block text-white/80 mb-2"
@@ -959,6 +960,7 @@
                   placeholder="Your last name"
                   required
                 />
+                <div id="lastNameError" class="hidden text-red-400 text-sm mt-1"></div>
               </div>
             </div>
 
@@ -974,6 +976,7 @@
                 placeholder="you@example.com"
                 required
               />
+              <div id="emailError" class="hidden text-red-400 text-sm mt-1"></div>
             </div>
 
             <div>
@@ -1025,11 +1028,11 @@
 
             <p class="text-white/60 text-center text-sm">
               By joining, you agree to our
-              <a href="#" class="text-primary hover:underline"
+              <a href="terms-of-service.html" class="text-primary hover:underline"
                 >Terms of Service</a
               >
               and
-              <a href="#" class="text-primary hover:underline">Privacy Policy</a
+              <a href="privacy-policy.html" class="text-primary hover:underline">Privacy Policy</a
               >.
             </p>
           </form>
@@ -1193,17 +1196,17 @@
           </p>
           <div class="flex space-x-6">
             <a
-              href="#"
-              class="text-white/60 text-sm hover:text-primary transition-colors"
-              >Privacy Policy</a
-            >
-            <a
-              href="#"
+              href="terms-of-service.html"
               class="text-white/60 text-sm hover:text-primary transition-colors"
               >Terms of Service</a
             >
             <a
-              href="#"
+              href="privacy-policy.html"
+              class="text-white/60 text-sm hover:text-primary transition-colors"
+              >Privacy Policy</a
+            >
+            <a
+              href="cookie-policy.html"
               class="text-white/60 text-sm hover:text-primary transition-colors"
               >Cookie Policy</a
             >
@@ -1225,26 +1228,26 @@
       id="successModal"
       class="fixed inset-0 flex items-center justify-center z-50 bg-black/70 backdrop-blur-sm hidden"
     >
-      <div class="bg-[#1A1A2E] rounded-xl p-8 max-w-md w-full mx-4">
+      <div class="bg-[#1A1A2E] rounded-xl p-8 max-w-md w-full mx-4 border border-primary/20 shadow-2xl">
         <div class="text-center mb-6">
           <div
-            class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse"
           >
-            <i class="ri-check-line text-primary ri-2x"></i>
+            <i class="ri-check-line text-primary text-3xl"></i>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2">
-            You're on the list!
+          <h3 class="text-3xl font-bold text-white mb-4">
+            Welcome to YTStack!
           </h3>
-          <p class="text-white/70">
-            Thanks for joining our waitlist. We'll notify you when YTStack
-            launches.
+          <p class="text-white/80 text-lg leading-relaxed">
+            Thank you for joining our waitlist! We're excited to have you on board. 
+            <span class="text-primary font-semibold">Once we launch our beta program, we'll email you immediately</span> with early access and exclusive benefits.
           </p>
         </div>
         <button
           id="closeModal"
-          class="w-full bg-primary text-white py-3 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors font-semibold"
+          class="w-full bg-primary text-white py-4 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 font-semibold text-lg"
         >
-          Close
+          Cool
         </button>
       </div>
     </div>
@@ -1385,6 +1388,133 @@
         const checkboxIndicator = document.getElementById("checkboxIndicator");
         const newsletterCheckbox = document.getElementById("newsletterCheckbox");
 
+        // Form validation functions
+        function validateName(name) {
+          // Check if name contains only letters, spaces, hyphens, and apostrophes
+          const nameRegex = /^[a-zA-Z\s\-']+$/;
+          return nameRegex.test(name.trim()) && name.trim().length >= 2;
+        }
+
+        function validateEmail(email) {
+          // More comprehensive email validation
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          
+          // Basic regex check
+          if (!emailRegex.test(email.trim())) {
+            return false;
+          }
+          
+          // Additional validation checks
+          const parts = email.trim().split('@');
+          const localPart = parts[0];
+          const domainPart = parts[1];
+          
+          // Check local part (before @)
+          if (localPart.length < 2) {
+            return false;
+          }
+          
+          // Check domain part (after @)
+          if (domainPart.length < 4) { // Minimum: a.co
+            return false;
+          }
+          
+          // Check if domain has at least one dot and valid TLD
+          const domainParts = domainPart.split('.');
+          if (domainParts.length < 2) {
+            return false;
+          }
+          
+          // Check TLD length (should be at least 2 characters)
+          const tld = domainParts[domainParts.length - 1];
+          if (tld.length < 2) {
+            return false;
+          }
+          
+          // Check if domain part before TLD is reasonable
+          const domainName = domainParts.slice(0, -1).join('.');
+          if (domainName.length < 1) {
+            return false;
+          }
+          
+          return true;
+        }
+
+        function showFieldError(fieldId, message) {
+          const field = document.getElementById(fieldId);
+          const errorDiv = document.getElementById(fieldId + 'Error');
+          
+          field.classList.add('border-red-500');
+          field.classList.remove('border-white/20', 'border-primary');
+          
+          if (errorDiv) {
+            errorDiv.textContent = message;
+            errorDiv.classList.remove('hidden');
+          }
+        }
+
+        function clearFieldError(fieldId) {
+          const field = document.getElementById(fieldId);
+          const errorDiv = document.getElementById(fieldId + 'Error');
+          
+          field.classList.remove('border-red-500');
+          field.classList.add('border-white/20');
+          
+          if (errorDiv) {
+            errorDiv.classList.add('hidden');
+          }
+        }
+
+        function validateField(fieldId, value, validator, errorMessage) {
+          if (!value.trim()) {
+            showFieldError(fieldId, 'This field is required');
+            return false;
+          }
+          
+          if (!validator(value)) {
+            showFieldError(fieldId, errorMessage);
+            return false;
+          }
+          
+          clearFieldError(fieldId);
+          return true;
+        }
+
+        // Real-time validation for name fields
+        const firstNameField = document.getElementById('firstName');
+        const lastNameField = document.getElementById('lastName');
+        const emailField = document.getElementById('email');
+
+        firstNameField.addEventListener('blur', function() {
+          validateField('firstName', this.value, validateName, 'Please enter a valid name (letters only)');
+        });
+
+        firstNameField.addEventListener('input', function() {
+          if (this.value.trim()) {
+            clearFieldError('firstName');
+          }
+        });
+
+        lastNameField.addEventListener('blur', function() {
+          validateField('lastName', this.value, validateName, 'Please enter a valid name (letters only)');
+        });
+
+        lastNameField.addEventListener('input', function() {
+          if (this.value.trim()) {
+            clearFieldError('lastName');
+          }
+        });
+
+        emailField.addEventListener('blur', function() {
+          validateField('email', this.value, validateEmail, 'Please enter a valid email address');
+        });
+
+        emailField.addEventListener('input', function() {
+          if (this.value.trim()) {
+            clearFieldError('email');
+          }
+        });
+
         // Show/hide indicator based on checkbox state
         function updateCheckboxIndicator() {
           if (newsletterCheckbox.checked) {
@@ -1408,6 +1538,24 @@
           console.log("Form submit event triggered");
           e.preventDefault();
 
+          // Validate all fields before submission
+          const firstName = firstNameField.value;
+          const lastName = lastNameField.value;
+          const email = emailField.value;
+
+          const isFirstNameValid = validateField('firstName', firstName, validateName, 'Please enter a valid name (letters only)');
+          const isLastNameValid = validateField('lastName', lastName, validateName, 'Please enter a valid name (letters only)');
+          const isEmailValid = validateField('email', email, validateEmail, 'Please enter a valid email address');
+
+          if (!isFirstNameValid || !isLastNameValid || !isEmailValid) {
+            // Scroll to first error
+            const firstError = document.querySelector('.border-red-500');
+            if (firstError) {
+              firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+          }
+
           try {
             const formDataObj = new FormData(waitlistForm);
             const formData = {
@@ -1428,9 +1576,15 @@
               alert("❌ Something went wrong. Try again.");
               console.error(error);
             } else {
-              alert("✅ Successfully added to waitlist!");
+              // Show success modal instead of alert
+              successModal.classList.remove("hidden");
               waitlistForm.reset();
               checkboxIndicator.classList.add("hidden");
+              
+              // Clear any error states
+              clearFieldError('firstName');
+              clearFieldError('lastName');
+              clearFieldError('email');
             }
           } catch (err) {
             console.error('Unexpected error during form submission:', err);
@@ -1443,6 +1597,11 @@
           successModal.classList.add("hidden");
           waitlistForm.reset();
           checkboxIndicator.classList.add("hidden");
+          
+          // Clear any error states
+          clearFieldError('firstName');
+          clearFieldError('lastName');
+          clearFieldError('email');
         });
       });
     </script>
